@@ -6,7 +6,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    </head>
    <body>
-      <form method="post" action="/meu/mapeamento/de/servlet">
+      <form method="post" action="meu/mapeamento/de/servlet">
          Código: <input type="text" name="codigo"/><br/>
          Nome: <input type="text" name="nome"/><br/>
          <input type="submit" value="Enviar"/>

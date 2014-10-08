@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * IF6AE Desenvolvimento de Aplicaçoões Web
  * @author Wilson Horstmeyer Bogado <wilson@utfpr.edu.br>
  */
-@WebServlet(name = "Modelo", urlPatterns = {"/modelo", "/xyz", "/loco"})
+@WebServlet(name = "Modelo", urlPatterns = {"/meu/mapeamento/de/servlet"})
 public class Modelo extends HttpServlet {
 
     /**
@@ -39,20 +39,17 @@ public class Modelo extends HttpServlet {
                     + "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Modelo de Servlet</title>");            
+            out.println("<title>Tarefa 1 de Servlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Modelo de Servlet em " + request.getContextPath() + "</h1>");
-            out.println("<form action='modelo' method='post'>");
-            out.println("Nome: <input type='text' name='nome'/><br/>");
-            out.println("<input type='submit' value='Enviar'/><br/>");
-            out.println("</form>");
+
+            String codigo = request.getParameter("codigo");
             String nome = request.getParameter("nome");
             if  (request.getMethod().equalsIgnoreCase("post")) {
-                if (nome == null || nome.trim().isEmpty()) {
-                    out.println("<h2 style='color: red'>Informe o nome!</h2>");
+                if (nome == null || nome.trim().isEmpty() || codigo == null || codigo.trim().isEmpty()) {
+                    out.println("<h2 style='color: red'>Informe o nome/código </h2>");
                 } else {
-                    out.println("<h2>Olá, " + nome + "</h2>");
+                    out.println("<h2>O usuário " + nome + " tem código " +codigo+ "</h2>");
                 }
             }
             out.println("</body>");
