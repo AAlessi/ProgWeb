@@ -39,17 +39,50 @@ public class Modelo extends HttpServlet {
                     + "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Tarefa 1 de Servlet</title>");            
+            out.println("<title>Tarefa 2 de Servlet</title>");            
             out.println("</head>");
             out.println("<body>");
+            
 
-            String codigo = request.getParameter("codigo");
-            String nome = request.getParameter("nome");
-            if  (request.getMethod().equalsIgnoreCase("post")) {
-                if (nome == null || nome.trim().isEmpty() || codigo == null || codigo.trim().isEmpty()) {
-                    out.println("<h2 style='color: red'>Informe o nome/código </h2>");
-                } else {
-                    out.println("<h2>O usuário " + nome + " tem código " +codigo+ "</h2>");
+            String codigo = request.getParameter("login");
+            String nome = request.getParameter("senha");
+            String perfil = request.getParameter("perfil");
+            if  (request.getMethod().equalsIgnoreCase("get")) {
+                
+                response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+            }else{
+                if(request.getMethod().equalsIgnoreCase("post")){
+                    
+                    response.addHeader("Allow", Integer.toString(405));
+                    
+                    if (nome == null || nome.trim().isEmpty() || codigo == null || codigo.trim().isEmpty()) {
+                            out.println("<h2 style='color: red'>Informe o nome/código </h2>");
+                    } else {
+                        if(!nome.equals(codigo)){
+                                
+                            out.println("<h2 style='color: red'>Cheguei Aqui </h2>");
+                            response.sendRedirect("errologin.html");
+                        } else{
+                            
+                            String perf = "";
+                            
+                           
+                            switch(perfil){
+                                case "1":
+                                    perf = "Cliente";
+                                    break;
+                                case "2":
+                                    perf = "Gerente";
+                                    break;
+                                case "3":
+                                    perf = "Administrador";
+                                    break;    
+                            }
+                            
+                            out.println("<h2> " + perf + ", requisição submetida às " + request.getDateHeader("perfil") + "</h2>");
+                        }
+      
+                    }
                 }
             }
             out.println("</body>");

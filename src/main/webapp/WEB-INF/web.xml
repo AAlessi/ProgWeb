@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	 version="3.0">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <servlet>
+        <servlet-name>Modelo</servlet-name>
+        <servlet-class>utfpr.ct.dainf.if6ae.exemplos.servlet.Modelo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Modelo</servlet-name>
+        <url-pattern>/meu/mapeamento/de/servlet</url-pattern>
+    </servlet-mapping>
+    
+    
+</web-app>
