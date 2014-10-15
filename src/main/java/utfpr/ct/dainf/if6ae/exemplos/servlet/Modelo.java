@@ -61,7 +61,7 @@ public class Modelo extends HttpServlet {
                         if(!nome.equals(codigo)){
                                 
                             out.println("<h2 style='color: red'>Cheguei Aqui </h2>");
-                            response.sendRedirect("errologin.html");
+                            response.sendRedirect("/servlet-simples/errologin.html");
                         } else{
                             
                             String perf = "";
