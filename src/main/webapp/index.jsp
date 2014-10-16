@@ -5,7 +5,7 @@
       <title>Login</title>
    </head>
    <body>
-      <form method="post" action="meu/mapeamento/de/servlet">
+      <form method="post" action="meuform.jsp">
          Código: <input type="text" name="login"/><br/>
          Nome: <input type="password" name="senha"/><br/>
          Perfil: <select name="perfil">
